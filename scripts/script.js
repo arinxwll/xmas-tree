@@ -177,3 +177,23 @@ let toys = [
                 return this.list[index];
             }
         };
+
+        let tree = {
+        type:"snowy",
+        background:"living_room",
+        garland:"multi",
+        toys: [
+            {id: 1,x: 120, y: 240, tepe:"ball_red"},
+            {id: 2,x: 160, y: 300, tepe:"ball_gold"}
+
+        ]
+        };
+
+        let original = {a: 1, b: 2};
+
+        let copy = Object.assign({}, original);
+
+        copy.a = 99;
+        console.log(original.a);       
+        
+        
