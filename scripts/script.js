@@ -102,55 +102,150 @@ console.log(i, toyy);
 }
 );
 
+const toysGrid = document.qyerySelector(".toys-grid");
+
+toys.forEach((toy, index) => {
+const toyBox = document.createElement("div");
+
+
+const img = document.createElement ("div");
+img.src = toy.image;
+img.classList.add("toy");
+img.draggable= true;
+img.dataset.index = index;
+
+const countBox= document.createElement ("div");
+
+countBox.textContent = toy.count;
+countBox.style.color = "white";
+countBox.style.textAlign = "center";
+countBox.style.fontSize = "14px";
+
+
+
+
+});
 let toys = [
+    { 
+        name: "Желтая игрушка с цветком",
+         color: "red", 
+         count: 5, 
+         year: 2023, 
+         shape: "ball", 
+         favorite: true,
+         image: "./images/5294.png" 
+        },
+    { 
+        name: "Красная игрушка с цветком", 
+        color: "red", 
+        count: 5, 
+        year: 2023 ,
+        shape: "ball", 
+        favorite: true, 
+        image: "./images/5295.png" 
+    },
+    { 
+        name: "Синяя игрушка с цветком", 
+        color: "blue", 
+        count: 5, 
+        year: 2023 , 
+        shape: "ball", 
+        favorite: true, 
+        image: "./images/5296.png" 
+    },
+    { 
+        name: "Черная игрушка с цветком", 
+        color: "black", 
+        count: 5, 
+        year: 2023 , 
+        shape: "ball", 
+        favorite: true, 
+        image: "./images/5297.png" 
+    }
+];
+/*let toys = [
     {
-    name: "большой шар с рисунком Цветок",
-    count: 2,
+    name: "большой шар",
+    count: 5,
     year: 1960,
     shape: "шар",
-    color: "желтый",
+    color: "красный",
     size: "большой",
-    favorite: false
+    favorite: false,
+    image:"./images/5294.png"
     },
 
 {
-    name: "большой шар с рисунком Цветок",
-    count: 2,
+    name: "большой шар",
+    count: 3,
     year: 2000,
     shape: "шар",
-    color: "зеленый",
+    color: "белокрасный",
     size: "большой",
-    favorite: false
+    favorite: false,
+    image:"./images/5295.png"
     },
     {
-        name: "большой шар с рисунком Цветок",
+        name: "большой шар с рисунком",
         count: 6,
         year: 2005,
         shape: "шар",
-        color: "красный",
+        color: "желтый",
         size: "большой",
-        favorite: false
+        favorite: false,
+        image:"./images/5296.png"
         },
         {
-            name: "большой шар с рисунком Цветок",
+            name: "большой шар с рисунком",
             count: 5,
             year: 2000,
             shape: "шар",
-            color: "синий",
-            size: "юольшой",
-            favorite: false
+            color: "зеленый",
+            size: "большой",
+            favorite: false,
+            image:"./images/5297.png"
             },
             {
-                name: "большой шар с рисунком Цветок",
+                name: "маленький шар",
                 count: 3,
                 year: 1960,
                 shape: "шар",
-                color: "фиолетовый",
-                size: "большой",
-                favorite: false
+                color: "красный",
+                size: "маленький",
+                favorite: false,
+                image:"./images/5298.png"
                 },
-        ]
-
+                {
+                    name: "большое кольцо",
+                    count: 5,
+                    year: 1960,
+                    shape: "кольцо",
+                    color: "серое",
+                    size: "большое",
+                    favorite: false,
+                    image:"./images/5299.png"
+                    },
+                    {
+                        name: "большой мягкий шар",
+                        count: 3,
+                        year: 1960,
+                        shape: "шар",
+                        color: "красный",
+                        size: "большой",
+                        favorite: false,
+                        image:"./images/5300.png"
+                        },
+                        {
+                            name: "большой колокольчик",
+                            count: 3,
+                            year: 1960,
+                            shape: "шар",
+                            color: "красный",
+                            size: "большой",
+                            favorite: false,
+                            image:"./images/53001.png"
+                            },
+        ]*/
         toys.forEach(toy => {
             console.log(
                 toy.name + 
