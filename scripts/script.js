@@ -121,6 +121,18 @@ countBox.style.color = "white";
 countBox.style.textAlign = "center";
 countBox.style.fontSize = "14px";
 
+toyBox.appendChild(img);
+toyBox.appendChild(countBox);
+
+toysGrid.appendChild(toyBox);
+
+img.addEventListener("dragstar", e => {
+    if (toy.count === 0) {
+        e.preventDefault()
+return    
+}
+e.dataTransfer.setdata("toy", index);
+})
 
 
 
@@ -244,7 +256,28 @@ let toys = [
                             size: "большой",
                             favorite: false,
                             image:"./images/53001.png"
-                            },
+                            
+                            }, <img src="./images/5294.png" alt="1">
+                <img src="./images/5295.png" alt="2"> 
+                <img src="./images/5296.png" alt="3"> 
+                <img src="./images/5297.png" alt="4">
+                <img src="./images/5298.png" alt="5">
+                <img src="./images/5299.png" alt="6">
+                <img src="./images/5300.png" alt="7">
+                <img src="./images/5301.png" alt="8">
+                <img src="./images/5302.png" alt="9">
+                <img src="./images/5303.png" alt="10">
+                <img src="./images/5304.png" alt="11">
+                <img src="./images/5305.png" alt="12">
+                <img src="./images/5306.png" alt="13">
+                <img src="./images/5307.png" alt="14">
+                <img src="./images/5308.png" alt="15">
+                <img src="./images/5309.png" alt="16">
+              </div>
+            </aside>
+        </div>
+                            
+
         ]*/
         toys.forEach(toy => {
             console.log(
@@ -290,5 +323,45 @@ let toys = [
 
         copy.a = 99;
         console.log(original.a);       
-        
+        const treeArea= document.querySelector(".tree-area");
+        treeArea.addEventListener("dragover", e => e.preventDefault())
+
+        treeArea.addEventListener("drop", e => {
+            e.preventDefault();
+
+            const rect = treeArea.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (e.dataTransfer.getData("toy") !== "") {
+                const toyIndex = e.dataTransfer.getData("toy");
+                const toy = toys[toyIndex];
+
+                if (toy.count > 0) {
+                    toy.count -= 1;
+                const xPos = x - 40;
+                const yPos = y - 40;
+
+                const img = document.createElement("img");
+                img.src= toy.image;
+                img.classList.add("toy-on-tree");
+                img.style.left = xPos = "px";
+                img.style.top = yPos = "px";
+                treeArea.appendChild(img);
+                currentTree.addToy(toy, xPos, yPos);
+
+                toysGrid.cildren[toyIndex].children[1].textContent = toy.count;
+
+                img.addEventListener("click", () => {
+                    img.remove();
+
+                    toy.count += 1;
+                    toysGrid.children[toyIndex].children[1],textContent = toy.count;
+
+                    currentTree.toys = currentTree.toys.filter ( t => t.id !== toy.id);
+                });
+            }
+            }
+        })
         
