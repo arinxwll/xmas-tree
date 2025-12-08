@@ -102,7 +102,7 @@ console.log(i, toyy);
 }
 );
 
-const toysGrid = document.qyerySelector(".toys-grid");
+const toysGrid = document.querySelector(".toys-grid");
 const treeArea = document.querySelector(".tree-area");
 
 treeArea.addEventListener("dragover", e => e.preventDefault());
@@ -263,6 +263,29 @@ let toys = [
         image: "./images/5297.png" 
     }
 ];
+let currentTree = {
+    type: "",
+    garland: "",
+    toys: [],
+  
+    setTree(newType) {
+      this.type = newType;
+    },
+  
+    setGarland(newGarland) {
+      this.garland = newGarland;
+    },
+
+    addToy(toyObj) {
+      this.toys.push(toyObj);
+    },
+  
+    showInfo() {
+      console.log("Ёлка:", this.type);
+      console.log("Гирлянда:", this.garland);
+      console.log("Игрушки:", this.toys);
+    }
+};
 /*let toys = [
     {
     name: "большой шар",
@@ -410,46 +433,65 @@ let toys = [
         let copy = Object.assign({}, original);
 
         copy.a = 99;
-        console.log(original.a);       
-        const treeArea= document.querySelector(".tree-area");
-        treeArea.addEventListener("dragover", e => e.preventDefault())
+        console.log(original.a); 
+      
+        // const treeArea= document.querySelector(".tree-area");
+        // treeArea.addEventListener("dragover", e => e.preventDefault())
 
-        treeArea.addEventListener("drop", e => {
-            e.preventDefault();
+        // treeArea.addEventListener("drop", e => {
+        //     e.preventDefault();
 
-            const rect = treeArea.getBoundingClientRect();
+        //     const rect = treeArea.getBoundingClientRect();
 
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        //     const x = e.clientX - rect.left;
+        //     const y = e.clientY - rect.top;
 
-            if (e.dataTransfer.getData("toy") !== "") {
-                const toyIndex = e.dataTransfer.getData("toy");
-                const toy = toys[toyIndex];
+        //     if (e.dataTransfer.getData("toy") !== "") {
+        //         const toyIndex = e.dataTransfer.getData("toy");
+        //         const toy = toys[toyIndex];
 
-                if (toy.count > 0) {
-                    toy.count -= 1;
-                const xPos = x - 40;
-                const yPos = y - 40;
+        //         if (toy.count > 0) {
+        //             toy.count -= 1;
+        //         const xPos = x - 40;
+        //         const yPos = y - 40;
 
-                const img = document.createElement("img");
-                img.src= toy.image;
-                img.classList.add("toy-on-tree");
-                img.style.left = xPos = "px";
-                img.style.top = yPos = "px";
-                treeArea.appendChild(img);
-                currentTree.addToy(toy, xPos, yPos);
+        //         const img = document.createElement("img");
+        //         img.src= toy.image;
+        //         img.classList.add("toy-on-tree");
+        //         img.style.left = xPos = "px";
+        //         img.style.top = yPos = "px";
+        //         treeArea.appendChild(img);
+        //         currentTree.addToy(toy, xPos, yPos);
 
-                toysGrid.cildren[toyIndex].children[1].textContent = toy.count;
+        //         toysGrid.cildren[toyIndex].children[1].textContent = toy.count;
 
-                img.addEventListener("click", () => {
-                    img.remove();
+        //         img.addEventListener("click", () => {
+        //             img.remove();
 
-                    toy.count += 1;
-                    toysGrid.children[toyIndex].children[1],textContent = toy.count;
+        //             toy.count += 1;
+        //             toysGrid.children[toyIndex].children[1],textContent = toy.count;
 
-                    currentTree.toys = currentTree.toys.filter ( t => t.id !== toy.id);
-                });
-            }
-            }
-        })
-        
+        //             currentTree.toys = currentTree.toys.filter ( t => t.id !== toy.id);
+        //         });
+        //     }
+        //     }
+        // })
+<audio id="xmas-audio" loop>
+        <source src="./audio/jingle-bells.mp3" type="audio/mpeg">
+      </audio>
+      const speakerBtn = document.getElementById("speaker-btn");
+const audio = document.getElementById("xmas-audio");
+
+let musicOn = false;
+
+speakerBtn.addEventListener("click", () => {
+  if (!musicOn) {
+    audio.play();
+    musicOn = true;
+    speakerBtn.classList.add("sound-on");
+  } else {
+    audio.pause();
+    musicOn = false;
+    speakerBtn.classList.remove("sound-on");
+  }
+});

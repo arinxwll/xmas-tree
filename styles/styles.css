@@ -62,12 +62,10 @@ margin-bottom :12px;
     border: 2px solid transparent;
   }
   .main-tree {
+min-height: 580px;
 
-    max-width: 80%;
-    max-height: 90%;
     object-fit: contain;
     position: relative;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5))
   }
 .toys-grid {
   background-color: rgba(0, 0, 0, 0.45);
@@ -88,8 +86,6 @@ margin-bottom :12px;
   min-height: 560px;
   padding: 10px;
 position: relative;
-object-fit: contain;
-pointer-events: none;
 background-position: center bottom;
 overflow: hidden;
 }
@@ -111,7 +107,14 @@ overflow: hidden;
 50%  { opacity: 0.3; }
 100% { opacity: 1; }
 }
-
+.bg-grid {
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 15px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(8,2fr);
+  gap: 15px;
+}
 
 /*.main-tree {
   max-height: 90%;
