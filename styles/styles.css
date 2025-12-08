@@ -38,20 +38,28 @@ body {
     opacity: 0.8;
   }
   .tree-grid {
+margin-bottom :12px; 
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
     background-color: rgba(0, 0, 0, 0.45);
     border-radius: 15px;
     padding: 0 15px 20px 15px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 15px;
     justify-content:center;
-    align-items: flex-end;
-    background-size: cover;
-    background-position: center bottom;
-    overflow: hidden;
-    position: relative;
-    background-position: center bottom;
-    width: 100%;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .tree-item{
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 15px;
+    padding: 0 15px 20px 15px;
+    display: grid;
+    justify-content:center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
   }
   .main-tree {
 
@@ -76,12 +84,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  border-radius: 10px;
+  min-height: 560px;
+  padding: 10px;
 position: relative;
-background-size: cover;
+object-fit: contain;
+pointer-events: none;
 background-position: center bottom;
 overflow: hidden;
-width: 100%;
+}
+.toy-on-tree {
+  position: absolute;
+  cursor: pointer;
+  pointer-events: auto;  
+  z-index: 5;            
+}
+.garland-on-tree {
+  position: absolute;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 4;
+  animation: blink 1.6s infinite ease-in-out;
+}
+@keyframes blink {
+0%   { opacity: 1; }
+50%  { opacity: 0.3; }
+100% { opacity: 1; }
 }
 
 

@@ -103,7 +103,95 @@ console.log(i, toyy);
 );
 
 const toysGrid = document.qyerySelector(".toys-grid");
+const treeArea = document.querySelector(".tree-area");
 
+treeArea.addEventListener("dragover", e => e.preventDefault());
+
+treeArea.addEventListener("drop", e => {
+  e.preventDefault();
+
+  const rect = treeArea.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  if (e.dataTransfer.getData("toy") !== "") {
+    const toyIndex = e.dataTransfer.getData("toy");
+    const toy = toys[toyIndex];
+
+    if (toy.count > 0) {
+      toy.count--;
+
+      const xPos = x - 40;
+      const yPos = y - 40;
+
+      placedCounter++;
+      const placedId = placedCounter;
+
+      const img = document.createElement("img");
+      img.src = toy.image;
+      img.classList.add("toy-on-tree");
+
+      img.style.left = xPos + "px";
+      img.style.top = yPos + "px";
+
+      // сохраняем id в DOM
+      img.dataset.placedId = placedId;
+
+      treeArea.appendChild(img);
+
+      // сохраняем в объект текущей ёлки
+      currentTree.addToy({
+        id: toy.id,
+        placedId: placedId,
+        x: xPos,
+        y: yPos,
+        image: toy.image
+      });
+      console.log('currentTree.toys:', currentTree.toys);
+      
+
+      toysGrid.children[toyIndex].children[1].textContent = toy.count;
+
+      img.addEventListener("click", () => {
+        console.log("Клик по игрушке", img.dataset.placedId);
+
+        img.remove();
+
+        toy.count++;
+        toysGrid.children[toyIndex].children[1].textContent = toy.count;
+
+        currentTree.toys = currentTree.toys.filter(
+          t => t.placedId != img.dataset.placedId // удалить игрушку
+        );
+      });
+    }
+  }
+
+  if (e.dataTransfer.getData("garland") !== "") {
+    const gIndex = e.dataTransfer.getData("garland");
+    const garland = garlands[gIndex];
+
+    currentTree.setGarland(garland.type);
+
+    const img = document.createElement("img");
+    img.src = garland.image;
+    img.classList.add("garland-on-tree");
+
+    img.style.left = (x - 140) + "px";
+    img.style.top = (y - 20) + "px";
+
+    img.style.animationDelay = (Math.random() * 1.6) + "s";
+
+    treeArea.appendChild(img);
+    
+    //при клике на гирлянду удаляем ее из DOM
+     img.addEventListener("click", () => {
+      img.remove();
+      // удаляем гирлянду из объекта текущей ёлки
+      currentTree.setGarland("");
+    });
+  }
+});
 toys.forEach((toy, index) => {
 const toyBox = document.createElement("div");
 
