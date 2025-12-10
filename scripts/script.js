@@ -1,3 +1,54 @@
+let currentTree = {
+  type: "",
+  garland: "",
+  toys: [],
+
+  setTree(newType) {
+    this.type = newType;
+  },
+
+  setGarland(newGarland) {
+    this.garland = newGarland;
+  },
+
+  addToy(toyObj) {
+    this.toys.push(toyObj);
+  },
+
+  showInfo() {
+    console.log("Ёлка:", this.type);
+    console.log("Гирлянда:", this.garland);
+    console.log("Игрушки:", this.toys);
+  }
+};
+
+let treeData= {
+  type: currentTree.type,
+  garland: currentTree.garland,
+  toys: currentTree.toys
+}
+function getBoundingClientTreeData() {
+  const resultCurrentTreeData = {
+    type: currentTree.type,
+  garland: currentTree.garland,
+  toys: currentTree.toys.map(toy => ({
+    id: toy.id,
+    x: toy.x,
+    y: toy.y,
+    image: toy.image
+  }))
+  }
+}
+return resultCurrentTreeData;
+
+const aveTreeBtn = document.getElementById("save-tree-btn");
+
+saveTreeBtn.addEventListener("click", () => {
+  const resultCurrentTreeData = getResultCurrentTreeData();
+  console.log(resultCurrentTreeData);
+  const resultCurrentTreeJSON = JSON.stringify(resultCurrentTreeData);
+  console.log(resultCurrentTreeJSON);
+});
 let fruits = ["яблоко", "киви", "груша"];
 let students = [
 {name: "анна", age: 15},
@@ -101,6 +152,7 @@ toyy.forEach((toyy, i) => {
 console.log(i, toyy);
 }
 );
+
 
 const toysGrid = document.querySelector(".toys-grid");
 const treeArea = document.querySelector(".tree-area");
@@ -263,29 +315,7 @@ let toys = [
         image: "./images/5297.png" 
     }
 ];
-let currentTree = {
-    type: "",
-    garland: "",
-    toys: [],
-  
-    setTree(newType) {
-      this.type = newType;
-    },
-  
-    setGarland(newGarland) {
-      this.garland = newGarland;
-    },
 
-    addToy(toyObj) {
-      this.toys.push(toyObj);
-    },
-  
-    showInfo() {
-      console.log("Ёлка:", this.type);
-      console.log("Гирлянда:", this.garland);
-      console.log("Игрушки:", this.toys);
-    }
-};
 /*let toys = [
     {
     name: "большой шар",
@@ -477,8 +507,8 @@ let currentTree = {
         //     }
         // })
 <audio id="xmas-audio" loop>
-        <source src="./audio/jingle-bells.mp3" type="audio/mpeg">
-      </audio>
+       <source src="./audio/jingle-bells.mp3" type="audio/mpeg">
+    </audio>
       const speakerBtn = document.getElementById("speaker-btn");
 const audio = document.getElementById("xmas-audio");
 
