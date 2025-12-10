@@ -37,7 +37,7 @@ function getBoundingClientTreeData() {
     y: toy.y,
     image: toy.image
   }))
-  }
+  }    
 }
 return resultCurrentTreeData;
 
