@@ -1,5 +1,5 @@
 body {
-  background-image: url('../images/background.jpg');
+  background-image: url('../images/background.pannie-spratt-zh7GEuORbUw-unsplash 1ng');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -112,7 +112,7 @@ overflow: hidden;
 50%  { opacity: 0.3; }
 100% { opacity: 1; }
 }
-.bg-grid {
+.backround-options {
   background-color: rgba(0, 0, 0, 0.45);
   border-radius: 15px;
   padding: 20px;
@@ -120,7 +120,23 @@ overflow: hidden;
   grid-template-columns: repeat(8,2fr);
   gap: 8px;
 }
-
+.bg-option {
+width: 40px;
+height: 40px;
+border-radius: 5px;
+border: 1px solid rgba(255, 255, 255, 0.3);
+background-size: cover;
+background-position: center;
+cursor: pointer;
+transition: border 0.2s;
+}
+.bg-option.selected {
+  border: 2px sold #5dc0de;
+  box-shadow: 0 0 10px rgba(91, 192, 222, 0.7);
+}
+.bf-option:hover {
+  border-color: #fff;
+}
 /*.main-tree {
   max-height: 90%;
   max-width: 80%;

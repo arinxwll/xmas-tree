@@ -1,3 +1,18 @@
+const bgOptionItems = document.querySelectorAll('bg-option');
+const currentbgOption = document.querySelector('.bg-option');
+if (currentBgOption) {
+  body.style.backraundImage = `url('${currentBgOption.dataset.bgSrc}')`;
+
+}
+bgOptionItems.forEach(item => {
+  item.addEventListener('click', () =>
+  {
+    bgOptionItems.forEach(b => b.classList.remove('selected'))
+    item.classList.add('selected');
+    body.style.backraundImage = `url('${item.dataset.bgSrc}')`;
+  });
+});
+
 let currentTree = {
   type: "",
   garland: "",
@@ -446,6 +461,18 @@ let toys = [
                 return this.list[index];
             }
         };
+        fetch("/data")
+        .then(response => {
+          if (!response.ok) {
+throw new Error("ошибка сервера");
+
+          }
+          return response.json();
+
+        })
+        .then(data => {
+          console.log("данные получены", data);
+        });
 
         let tree = {
         type:"snowy",
