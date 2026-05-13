@@ -12,15 +12,24 @@
               <h2>Выберите ёлку</h2>
               <div class="tree-grid">
           
-              <img src="./images/tree1.png" alt="елка 1">
-              <img src="./images/tree2.png" alt="елка 2">
-              <img src="./images/tree3.png" alt="елка 3">
-              <img src="./images/tree4.png" alt="елка 4">
+                  <div class="tree-item selected" data-main-src="./images/tree1.png">
+          <img src="./images/tree1.png" alt="tree 1">
+        </div>
+        <div class="tree-item" data-main-src="./images/tree2.png">
+          <img src="./images/tree2.png" alt="tree 2">
+        </div>
+        <div class="tree-item" data-main-src="./images/tree3.png">
+          <img src="./images/tree3.png" alt="tree 3">
+        </div>
+        <div class="tree-item" data-main-src="./images/tree4.png">
+          <img src="./images/tree4.png" alt="tree 4">
+        </div>
+      </div>
+
             </div>
               <h2>Выберите фон</h2>
               <div class="backround-options">
                 <div class="bg-option selected" data-bg-src="./images/kam-idris-L9-sfN04jdk-unsplash 1 (1).png"></div>
-            
               <div class="bg-option" data-bg-src="./images/kam-idris-L9-sfN04jdk-unsplash 1 (1).png"></div>
               <div class="bg-option" data-bg-src="./images/kam-idris-L9-sfN04jdk-unsplash 1 (1).png"></div>
               <div class="bg-option" data-bg-src="./images/kam-idris-L9-sfN04jdk-unsplash 1 (1).png"></div>
@@ -39,8 +48,8 @@
                 <a class="button" id="reset-tree-btn">Сбросить настройки</a>
               </div>
             </aside>
-            <main class="tree-area">
-              <img src="./images/tree3.png" class="main-tree" />
+            <main class="tree-area" id="treeArea" style="background-image:'./images/kam-idris-L9-sfN04jdk-unsplash 1 (1).png' url();">
+              <img src="./images/tree3.png" class="main-tree"  alt="main tree">
             </main>
             <aside class="right-panel">
               <h2>Игрушки</h2>
